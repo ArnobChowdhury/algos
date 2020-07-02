@@ -9,8 +9,8 @@ class Graph(object):
             i += 1
 
     def add_edge(self, v1, v2):
-        if (v1 == v2):
-            print ('%d and %d are same vertex' % (v1, v2))
+        if v1 == v2:
+            print('%d and %d are same vertex' % (v1, v2))
             return
         self.adj_matrix[v1][v2] = 1
         self.adj_matrix[v2][v1] = 1
@@ -22,11 +22,20 @@ class Graph(object):
         self.adj_matrix[v1][v2] = 0
         self.adj_matrix[v2][v1] = 0
 
-g = Graph(5)
-g.add_edge(0, 3)
-g.add_edge(0, 0)
-g.add_edge(1, 3)
-print(g.adj_matrix)
-g.remove_edge(2, 3)
-g.remove_edge(1, 3)
-print(g.adj_matrix)
+    def print_matrix(self):
+        for row in self.adj_matrix:
+            print(row)
+
+
+def main():
+    g = Graph(5)
+    g.add_edge(0, 3)
+    g.add_edge(0, 0)
+    g.add_edge(1, 3)
+    print(g.adj_matrix)
+    g.remove_edge(2, 3)
+    g.remove_edge(1, 3)
+    g.print_matrix()
+
+if __name__ == "__main__":
+    main()
