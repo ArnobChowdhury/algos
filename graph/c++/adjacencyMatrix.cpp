@@ -15,7 +15,7 @@ public:
         for (int i = 0; i < numVertices; i++)
         {
             adjMatrix[i] = new bool[numVertices];
-            for (int j = 0; numVertices; j++)
+            for (int j = 0; j < numVertices; j++)
                 adjMatrix[i][j] = false;
         }
     }
@@ -31,4 +31,35 @@ public:
         adjMatrix[j][i] = false;
         adjMatrix[i][j] = false;
     }
+
+    void toString()
+    {
+        for (int i = 0; i < numVertices; i++)
+        {
+            cout << i << " : ";
+            for (int j = 0; j < numVertices; j++)
+                cout << adjMatrix[i][j] << " ";
+            cout << endl;
+        }
+    }
+
+    ~Graph()
+    {
+        for (int i = 0; i < numVertices; i++)
+            delete[] adjMatrix[i];
+        delete[] adjMatrix;
+    }
+};
+
+int main()
+{
+    Graph g(4);
+
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(2, 0);
+    g.addEdge(2, 3);
+
+    g.toString();
 }
