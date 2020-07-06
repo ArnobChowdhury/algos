@@ -38,6 +38,5 @@ int main()
     addEdge(adj, 0, 2);
     addEdge(adj, 0, 3);
     addEdge(adj, 1, 2);
-    // printGraph(adj, V);
-    printVecotr(adj, 5);
+    printGraph(adj, V);
 }
