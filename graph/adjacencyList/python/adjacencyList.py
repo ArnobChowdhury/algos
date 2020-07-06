@@ -9,7 +9,6 @@ class Graph:
         self.V = num
         self.graph = [None] * self.V
 
-    # Add edges
     def add_edge(self, s, d):
         node = AdjNode(d)
         node.next = self.graph[s]
@@ -19,27 +18,22 @@ class Graph:
         node.next = self.graph[d]
         self.graph[d] = node
 
-
-    # Print the graph
     def print_agraph(self):
         for i in range(self.V):
-            print("Vertex " + str(i) + ":", end="")
+            print('Vertex ' + str(i) + ' :', end='')
             temp = self.graph[i]
-            while temp:
-                print(" -> {}".format(temp.vertex), end="")
+            while(temp):
+                print(' -> {}'.format(temp.vertex), end='')
                 temp = temp.next
-            print(" \n")
+            print('\n')
 
 
 if __name__ == "__main__":
     V = 5
+    g = Graph(V)
+    g.add_edge(0, 1)
+    g.add_edge(0, 2)
+    g.add_edge(0, 3)
+    g.add_edge(1, 2)
 
-    # Create graph and edges
-    graph = Graph(V)
-    graph.add_edge(0, 1)
-    # graph.add_edge(0, 2)
-    # graph.add_edge(0, 3)
-    # graph.add_edge(1, 2)
-
-    # print(graph.graph)
-    # graph.print_agraph()
+    g.print_agraph()
